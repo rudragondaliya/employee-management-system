@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteTask } from '../../redux/taskSlice';
 import DataTable from 'react-data-table-component';
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const TaskTable = ({ setSelectedTask = () => {}, isManager = false }) => {
   const { tasks } = useSelector(state => state.task);
@@ -67,13 +69,13 @@ const TaskTable = ({ setSelectedTask = () => {}, isManager = false }) => {
             className="btn btn-sm btn-warning me-2"
             onClick={() => setSelectedTask(row)}
           >
-            Edit
+           <FaEdit  size={20}/>
           </button>
           <button
             className="btn btn-sm btn-danger"
             onClick={() => dispatch(deleteTask(row.id))}
           >
-            Delete
+            <MdDelete />
           </button>
         </div>
       ),

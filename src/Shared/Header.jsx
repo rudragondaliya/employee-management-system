@@ -1,34 +1,53 @@
 // src/Shared/Header.jsx
-import React from "react";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import profile from '../assets/profile.jpg';
 
-const Header = ({ onToggleSidebar }) => {
+const Header = () => {
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const navigate = useNavigate();
+
+  const handleToggle = () => setShowOffcanvas(!showOffcanvas);
+  const handleClose = () => setShowOffcanvas(false);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/');
+  };
+
   return (
     <>
       {/* Mobile Header */}
       <Navbar bg="white" expand="md" className="d-md-none px-3 shadow-sm">
         <Container fluid>
           <div className="d-flex align-items-center">
-            <button className="btn me-2" onClick={onToggleSidebar}>
+            <button className="btn me-2" onClick={handleToggle}>
               <i className="bi bi-list fs-4"></i>
             </button>
             <Navbar.Brand as={Link} to="/">TwitHR</Navbar.Brand>
           </div>
-          <Navbar.Toggle aria-controls="mobile-nav" />
-          <Navbar.Collapse id="mobile-nav">
-            <Nav className="ms-auto text-center">
-              <Nav.Link as={Link} to="/">Dashboard</Nav.Link>
-              <Nav.Link as={Link} to="/employee">Employees</Nav.Link>
-              <Nav.Link as={Link} to="/manager-tools">Manager Tools</Nav.Link>
-              <Nav.Link as={Link} to="/salary-slip">Salary Slip</Nav.Link>
-              <Nav.Link as={Link} to="/chat">Chat</Nav.Link>
-              <Nav.Link as={Link} to="/settings">Settings</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Offcanvas Sidebar for Mobile */}
+      <Offcanvas show={showOffcanvas} onHide={handleClose} className="w-75">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>TwitHR Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column gap-2">
+            <Nav.Link as={Link} to="/" onClick={handleClose}>Dashboard</Nav.Link>
+            <Nav.Link as={Link} to="/employee" onClick={handleClose}>Employees</Nav.Link>
+            <Nav.Link as={Link} to="/tools" onClick={handleClose}>Manager Tools</Nav.Link>
+            <Nav.Link as={Link} to="/salary-slip" onClick={handleClose}>Salary Slip</Nav.Link>
+            <Nav.Link as={Link} to="/chat" onClick={handleClose}>Chat</Nav.Link>
+              <button onClick={handleLogout} className="btn btn-sm btn-outline-danger mt-1">
+                Logout
+              </button>
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
 
       {/* Desktop Header */}
       <div className="d-none d-md-flex justify-content-between align-items-center px-4 py-3 border-bottom bg-white shadow-sm">
@@ -48,6 +67,7 @@ const Header = ({ onToggleSidebar }) => {
             <div>
               <div className="fw-bold">Mr Rudra</div>
               <div className="text-muted small">Sr. HR Manager</div>
+            
             </div>
           </div>
         </div>
