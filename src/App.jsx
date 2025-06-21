@@ -126,7 +126,7 @@ const App = () => {
         }
       />
       <Route path="/logout" element={<Logout />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 };
