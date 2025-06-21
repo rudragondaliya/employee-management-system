@@ -80,7 +80,7 @@ const Sidebar = () => {
         </li>
 
         {/* Logout */}
-        <li className="nav-item mt-4">
+        <li className="nav-item mb-3">
           <button
             className="btn btn-light text-primary w-100 text-start"
             onClick={handleLogout}
