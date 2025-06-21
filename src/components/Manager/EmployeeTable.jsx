@@ -45,28 +45,7 @@ const EmployeeTable = () => {
       selector: row => Object.keys(row.slips || {}).join(', '),
       wrap: true,
     },
-    {
-      name: 'Actions',
-      cell: row => (
-        <div className="d-flex gap-2">
-          <button
-            className="btn btn-sm btn-outline-primary"
-            onClick={() => navigate(`/employee/${row.id}`)}
-          >
-            <FaEdit /> Edit
-          </button>
-          <button
-            className="btn btn-sm btn-outline-danger"
-            onClick={() => dispatch(deleteEmployee(row.id))}
-          >
-            <MdDelete /> Delete
-          </button>
-        </div>
-      ),
-      ignoreRowClick: true,
-      allowOverflow: true,
-      button: true,
-    },
+    
   ];
 
   return (
