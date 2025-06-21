@@ -1,12 +1,22 @@
-// src/Shared/Header.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import profile from '../assets/profile.jpg';
 
 const Header = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [userRole, setUserRole] = useState('');
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUserRole(storedUser.role); 
+      setUserName(storedUser.name); 
+    }
+  }, []);
 
   const handleToggle = () => setShowOffcanvas(!showOffcanvas);
   const handleClose = () => setShowOffcanvas(false);
@@ -14,6 +24,10 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
+  };
+
+  const getRoleLabel = () => {
+    return userRole === 'manager' ? 'Sr. HR Manager' : 'Sr. Employee';
   };
 
   return (
@@ -42,9 +56,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/tools" onClick={handleClose}>Manager Tools</Nav.Link>
             <Nav.Link as={Link} to="/salary-slip" onClick={handleClose}>Salary Slip</Nav.Link>
             <Nav.Link as={Link} to="/chat" onClick={handleClose}>Chat</Nav.Link>
-              <button onClick={handleLogout} className="btn btn-sm btn-outline-danger mt-1">
-                Logout
-              </button>
+            <button onClick={handleLogout} className="btn btn-sm btn-outline-danger mt-1">
+              Logout
+            </button>
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
@@ -65,9 +79,8 @@ const Header = () => {
               className="rounded-circle me-2 object-fit-cover"
             />
             <div>
-              <div className="fw-bold">Mr Rudra</div>
-              <div className="text-muted small">Sr. HR Manager</div>
-            
+              <div className="fw-bold">{userName || 'User'}</div>
+              <div className="text-muted small">{getRoleLabel()}</div>
             </div>
           </div>
         </div>

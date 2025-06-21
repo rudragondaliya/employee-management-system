@@ -35,11 +35,13 @@ const LoginForm = () => {
 
       if (isManager || isEmployee) {
         const userData = {
-          id: isManager ? 'manager1' : 'emp1',
-          name: isManager ? 'Admin' : 'Rudra',
-          role: role.toLowerCase(),
-          email,
-        };
+        id: isManager ? 'manager1' : 'emp1',
+        name: isManager ? 'Admin' : 'Rudra',
+        role: role.toLowerCase(), 
+        email,
+      };
+      localStorage.setItem('user', JSON.stringify(userData));
+
 
         dispatch(login(userData));
         localStorage.setItem('user', JSON.stringify(userData));
