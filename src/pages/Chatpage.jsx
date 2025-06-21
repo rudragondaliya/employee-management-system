@@ -1,21 +1,26 @@
+// src/pages/ChatPage.jsx
 import React, { useState } from 'react';
 import ChatBox from '../components/Employee/ChatBox';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const ChatPage = () => {
   const [selectedEmp, setSelectedEmp] = useState('emp1');
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth); // get user role from Redux
 
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h4 className="mb-0">💬 Manager Chat Panel</h4>
-        <button className="btn btn-outline-secondary" onClick={() => navigate('/dashboard')}>
+        <button
+          className="btn btn-outline-secondary"
+          onClick={() => navigate(user?.role === 'manager' ? '/dashboard' : '/employee')}
+        >
           🏠 Go to Dashboard
         </button>
       </div>
 
-      {/* Dropdown to select which employee to chat with */}
       <select
         className="form-select mb-3 w-25"
         value={selectedEmp}
@@ -25,7 +30,6 @@ const ChatPage = () => {
         <option value="emp2">Employee 2</option>
       </select>
 
-      {/* Chat UI for selected employee */}
       <ChatBox employeeId={selectedEmp} />
     </div>
   );

@@ -1,3 +1,4 @@
+// src/pages/SalarySlipList.jsx
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import SalarySlipViewer from '../components/Employee/SlipViwer';
@@ -6,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SalarySlipList = () => {
   const { employees } = useSelector((state) => state.employee);
+  const { user } = useSelector((state) => state.auth); // get user role from Redux
   const [activeSlip, setActiveSlip] = useState(null);
   const navigate = useNavigate();
 
@@ -16,7 +18,10 @@ const SalarySlipList = () => {
       <div className="container mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h3>📋 All Generated Salary Slips</h3>
-          <button className="btn btn-outline-secondary" onClick={() => navigate('/dashboard')}>
+          <button
+            className="btn btn-outline-secondary"
+            onClick={() => navigate(user?.role === 'manager' ? '/dashboard' : '/employee')}
+          >
             🏠 Go to Dashboard
           </button>
         </div>
@@ -54,7 +59,9 @@ const SalarySlipList = () => {
 
         {activeSlip && (
           <div className="mt-4">
-            <h4 className="mb-3">👁️ Viewing Slip: {activeSlip.name} - {activeSlip.month}</h4>
+            <h4 className="mb-3">
+              👁️ Viewing Slip: {activeSlip.name} - {activeSlip.month}
+            </h4>
             <SalarySlipViewer slip={activeSlip} />
           </div>
         )}
