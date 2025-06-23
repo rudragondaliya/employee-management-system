@@ -1,4 +1,3 @@
-// src/pages/SalarySlipList.jsx
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import SalarySlipViewer from '../components/Employee/SlipViwer';
@@ -7,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SalarySlipList = () => {
   const { employees } = useSelector((state) => state.employee);
-  const { user } = useSelector((state) => state.auth); // get user role from Redux
+  const { user } = useSelector((state) => state.auth); 
   const [activeSlip, setActiveSlip] = useState(null);
   const navigate = useNavigate();
 

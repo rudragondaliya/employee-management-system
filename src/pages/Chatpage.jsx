@@ -1,4 +1,3 @@
-// src/pages/ChatPage.jsx
 import React, { useState } from 'react';
 import ChatBox from '../components/Employee/ChatBox';
 import { useNavigate } from 'react-router-dom';

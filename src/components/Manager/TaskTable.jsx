@@ -59,7 +59,7 @@ const TaskTable = ({ setSelectedTask = () => {}, isManager = false }) => {
     },
   ];
 
-  // Conditionally add Actions column for managers
+  
   if (isManager) {
     columns.push({
       name: 'Actions',

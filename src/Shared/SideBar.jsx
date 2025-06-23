@@ -31,13 +31,13 @@ const Sidebar = () => {
         backgroundColor: "#6C63FF",
       }}
     >
-      {/* Sidebar Header */}
+    
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h4 className="m-0">TwitHR</h4>
         <IoMenuOutline size={28} />
       </div>
 
-      {/* Navigation Links */}
+     
       <ul className="nav flex-column">
         {role === 'manager' && (
           <>
@@ -67,7 +67,6 @@ const Sidebar = () => {
           </li>
         )}
 
-        {/* Shared Links */}
         <li className="nav-item mb-3">
           <Link to="/salary-slip" className="btn btn-outline-light w-100 text-start">
             <FaFileInvoice className="me-2" /> Salary Slip
@@ -79,7 +78,7 @@ const Sidebar = () => {
           </Link>
         </li>
 
-        {/* Logout */}
+    
         <li className="nav-item mb-3">
           <button
             className="btn btn-light text-primary w-100 text-start"

@@ -47,7 +47,7 @@ const EmployeePage = () => {
         <Header />
         <div className="container-fluid p-4">
 
-          {/* 👨‍💼 Employee Table */}
+         
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h3>Employee List</h3>
           </div>
@@ -55,13 +55,13 @@ const EmployeePage = () => {
             <EmployeeTable />
           </div>
 
-          {/* 📋 Assigned Tasks */}
+ 
           <div className="card p-3 shadow-sm mb-4">
             <h5 className="mb-3">Assigned Tasks</h5>
             <TaskTable isManager={false} />
           </div>
 
-          {/* ✅ Task List per Employee */}
+      
           <div className="card p-3 shadow-sm mb-4">
             <h5 className="mb-4">All Employee Task Lists</h5>
             {employees.length === 0 ? (
@@ -77,7 +77,7 @@ const EmployeePage = () => {
             )}
           </div>
 
-          {/* 🧾 Salary Slips */}
+       
           <div className="card p-3 shadow-sm mb-4">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <h5>Employee Salary Slips</h5>
@@ -153,7 +153,6 @@ const EmployeePage = () => {
             </div>
           </div>
 
-          {/* 💬 Chat Section */}
           <div className="card p-3 shadow-sm mb-4">
             <h5 className="mb-3">💬 Chat with Manager</h5>
             <ChatBox employeeId={user.id} />

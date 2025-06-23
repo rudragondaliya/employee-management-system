@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <div className="d-flex vh-100">
-      {/* Sidebar */}
+   
       <div className={`sidebar bg-primary text-white ${sidebarVisible ? '' : 'd-none d-md-block'}`}>
         <SideBar />
       </div>
@@ -56,14 +56,13 @@ const Dashboard = () => {
         <Header onToggleSidebar={() => setSidebarVisible(!sidebarVisible)} />
 
         <div className="container-fluid py-3 px-3">
-          {/* Add New Employee Button */}
+   
           <div className="d-flex justify-content-between align-items-center mb-4">
             <button className="btn btn-primary" onClick={() => navigate("/employee/add")}>
               + Add New Employee
             </button>
           </div>
 
-          {/* Welcome Card */}
           <div className="card shadow-sm mb-4" style={{ backgroundColor: "#6C63FF", color: "#fff" }}>
             <div className="card-body">
               <h5>Hello Mr Rudra!</h5>
@@ -75,7 +74,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Summary Cards */}
           <div className="row g-3">
             <div className="col-sm-6 col-lg-3">
               <div className="card text-white bg-success">
@@ -111,7 +109,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Assign Task Section */}
+       
           <div className="mt-5">
             <div className="d-flex justify-content-between align-items-center">
               <h5>Manager Actions</h5>
@@ -128,7 +126,7 @@ const Dashboard = () => {
             )}
           </div>
 
-          {/* Employee Table */}
+     
           <div className="card shadow-sm mt-4 p-3">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <h5>Employee Records</h5>
@@ -176,7 +174,7 @@ const Dashboard = () => {
               </table>
             </div>
 
-            {/* Modal for Employee Details */}
+          
             {selectedEmployee && (
               <EmployeeDetailsModal
                 employee={selectedEmployee}

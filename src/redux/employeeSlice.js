@@ -1,4 +1,3 @@
-// redux/employeeSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const storedEmployees = localStorage.getItem('employees');

@@ -9,26 +9,25 @@ const ManagerToolsPage = () => {
   const { employees } = useSelector(state => state.employee);
   const [selectedId, setSelectedId] = useState('');
   const [month, setMonth] = useState('');
-  const [sidebarVisible, setSidebarVisible] = useState(false); // Optional toggle logic
+  const [sidebarVisible, setSidebarVisible] = useState(false); 
 
   const selectedEmployee = employees.find(emp => emp.id === selectedId);
   const slip = selectedEmployee?.slips?.[month];
 
   return (
     <div className="d-flex" style={{ height: '100vh', overflow: 'hidden' }}>
-      {/* Sidebar */}
+
       <div className={`sidebar bg-primary text-white ${sidebarVisible ? '' : 'd-none d-md-block'}`}>
         <Sidebar />
       </div>
 
-      {/* Main content area */}
+   
       <div className="flex-grow-1" style={{ overflowY: 'auto', height: '100vh' }}>
         <Header />
 
         <div className="p-4">
           <h2 className="mb-4">🛠 Manager Tools</h2>
 
-          {/* Salary Slip Viewer */}
           <div className="card p-4 mb-4 shadow-sm">
             <h4 className="mb-3">📑 View Salary Slip</h4>
 

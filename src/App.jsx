@@ -17,7 +17,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Login />} />
 
-      {/* 👔 Manager-only Routes */}
+      
       <Route
         path="/dashboard"
         element={
@@ -51,7 +51,7 @@ const App = () => {
         }
       />
 
-      {/* 👨‍💼 Employee-only Routes */}
+     
       <Route
         path="/employee"
         element={
@@ -61,7 +61,7 @@ const App = () => {
         }
       />
 
-      {/* Shared Routes */}
+    
       <Route
         path="/salary-slip"
         element={

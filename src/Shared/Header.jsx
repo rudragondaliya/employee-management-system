@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Mobile Header */}
+    
       <Navbar bg="white" expand="md" className="d-md-none px-3 shadow-sm">
         <Container fluid>
           <div className="d-flex align-items-center">
@@ -44,7 +44,7 @@ const Header = () => {
         </Container>
       </Navbar>
 
-      {/* Offcanvas Sidebar for Mobile */}
+
       <Offcanvas show={showOffcanvas} onHide={handleClose} className="w-75">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>TwitHR Menu</Offcanvas.Title>
@@ -63,7 +63,6 @@ const Header = () => {
         </Offcanvas.Body>
       </Offcanvas>
 
-      {/* Desktop Header */}
       <div className="d-none d-md-flex justify-content-between align-items-center px-4 py-3 border-bottom bg-white shadow-sm">
         <h4 className="mb-0 fw-bold">Dashboard</h4>
         <div className="d-flex align-items-center gap-3">
