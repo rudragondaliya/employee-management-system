@@ -1,10 +1,21 @@
-
 **🧑‍💼 Employee Management System (EMS)**
 
 A full-featured **Employee Management System** built with **React**, **Redux Toolkit**, and **Bootstrap**. EMS offers a role-based dashboard for managers and employees to manage tasks, salaries, communication, and more.
 
 **🔗 Live Preview:**
 [https://employee-management-system-coral-six.vercel.app/](https://employee-management-system-coral-six.vercel.app/)
+
+---
+
+**🔐 Login Credentials**
+
+**Manager Login**
+Email: `manager@gmail.com`
+Password: `admin123`
+
+**Employee Login**
+Email: `employee@gmail.com`
+Password: `emp123`
 
 ---
 
@@ -39,12 +50,12 @@ A full-featured **Employee Management System** built with **React**, **Redux Too
 
 **🧱 Tech Stack**
 
-React – Frontend Framework
-Redux Toolkit – State Management
-React Router – Navigation & Routing
-Bootstrap 5 – Responsive Styling
-Vite – Frontend Build Tool
-Vercel – Deployment Platform
+* React – Frontend Framework
+* Redux Toolkit – State Management
+* React Router – Navigation & Routing
+* Bootstrap 5 – Responsive Styling
+* Vite – Frontend Build Tool
+* Vercel – Deployment Platform
 
 ---
 
@@ -112,12 +123,12 @@ src/
 ---
 
 **🧑‍💻 Author**
-
 Rudra Gondaliya
 Feel free to connect and contribute!
 
 ---
 
 **📜 License**
-
 This project is licensed under the MIT License.
+
+---
